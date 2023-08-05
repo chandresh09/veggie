@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vegetables app</title>
+    <style>
+        table{
+        width:50%;
+        }
+        table,th,td{
+        border:1px solid;
+        }
+    </style>
+</head>
+<body>
+<h1>This is vegetable page</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>No </th>
+                <th>Name </th>
+                <th>Type </th>
+                <th>Quantity</th>
+                <th>Available/Unavailable</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for i in v1 %}
+        <tr>
+            <td>
+                {{forloop.counter}}
+            </td>
+            <td>
+                {{i.name}}
+            </td>
+            <td>
+                {{i.type}}
+            </td>
+            <td>
+                {{i.quantity}}
+            </td>
+            <td>
+                {% if i.quantity >= 1 %}
+                AVAILABLE
+                {% else %}
+                UNAVAILABLE
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
